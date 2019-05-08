@@ -1,0 +1,22 @@
+{
+  "name": "build-webpack-cli",
+  "version": "1.0.0",
+  "description": "how to build webpack-cli elegantly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lengkuqingai/webpack-note.git"
+  },
+  "keywords": [
+    "webpack-cli"
+  ],
+  "author": "zys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lengkuqingai/webpack-note/issues"
+  },
+  "homepage": "https://github.com/lengkuqingai/webpack-note#readme"
+}
