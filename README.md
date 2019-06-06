@@ -145,3 +145,17 @@
         >> babel-plugin-transform-runtime 这个模块会将我们的代码重写，如将 Promise 重写成 _Promise（只是打比方），并且统一将工具函数放在单个模块中，避免被重复打包  
         
 11. [devTool配置](https://www.jianshu.com/p/62dc120d96d0)可供参考
+     ![参考图](https://upload-images.jianshu.io/upload_images/13805935-5616f8a35b8a6262.png)
+    * eval:每个模块用eval执行，并且存在@sourceUrl，就是说这种配置的devtool，在打包的时候，生成的bundle.js文件，模块都被eval包裹，并且后面跟着sourceUrl,指向的是原文件index.js，调试的时候，就是根据这个sourceUrl找到的index.js文件的
+    * source-map:这种配置会生成一个带有.map文件，这个map文件会和原始文件做一个映射，调试的时候，就是通国这个.map文件去定位原来的代码位置的
+    * cheap:低消耗打包，什么叫低消耗，就是打包的时候map文件，不会保存原始代码的列位置信息，只包含行位置信息
+    * module:调试的代码不会被转换，会保留原始代码语法
+    * eval-source-map:结果是并没有一个map文件，而是在文件里面除了一个sourceURL还有一个surceMappingURL(这个模式比较特殊), 这个后面跟着的是map文件的base64码，他不是生成map文件，而是把map文件内容变成base64，插入到bundle.js文件中
+    * cheap-eval-source-map:光标没有列信息,其他同上
+    * ......
+    *注：* 开发环境推荐：cheap-module-eval-source-map，生产环境推荐：cheap-module-source-map。理由：使用 module 可支持 babel 这种预编译工具（在 webpack 里做为 loader 使用），使用 eval 方式可大幅提高持续构建效率,直接将sourceMap放入打包后的文件，会明显增大文件的大小，不利于静态文件的快速加载；而外联.map时，.map文件只会在F12开启时进行下载（sourceMap主要服务于调试），故推荐使用外联.map的形式
+12. resolve配置 alias别名，extensions访问后缀列表
+13. 常用插件列表集合
+    cnpm i clean-webpack-plugin -D 清除前次打包文件
+    webpack.HotModuleReplacementPlugin() 配合devServer的hot属性，启用热更新功能
+    

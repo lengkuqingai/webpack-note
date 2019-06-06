@@ -1,4 +1,5 @@
 const merge = require('webpack-merge')
+const webpack = require('webpack')
 const env = require('./webpack.config')
 
 module.exports = merge(env,{
@@ -29,6 +30,9 @@ module.exports = merge(env,{
             }
         }
     },
+    plugins:[
+        new webpack.HotModuleReplacementPlugin()
+    ],
     mode:'development',
-    devTool:'cheap-module-eval-source-map'
+    devtool:'cheap-module-eval-source-map'
 })

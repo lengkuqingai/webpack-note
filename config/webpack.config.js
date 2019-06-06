@@ -69,6 +69,12 @@ module.exports = {
         new miniCssExtractPlugin({
             filename:devMode?'[name].css':'[name].[hash].css',
             chunkFilename:devMode?'[id].css':'[id].[hash].css'
-        })
+        }),
     ],//对应插件
+    resolve: {
+        extensions: ['.js','.css','.json'],
+        alias:[
+
+        ]
+    }
 }
