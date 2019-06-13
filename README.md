@@ -158,4 +158,9 @@
 13. 常用插件列表集合
     cnpm i clean-webpack-plugin -D 清除前次打包文件
     webpack.HotModuleReplacementPlugin() 配合devServer的hot属性，启用热更新功能
-    
+14. externals配置：如果我们想引用一个库，但是又不想让webpack打包，并且又不影响我们在程序中以CMD、AMD或者window/global全局等方式进行使用，那就可以通过配置externals，格式为 'aaa' : 'bbb', 其中，aaa表示要引入的资源的名字，bbb表示该模块提供给外部引用的名字
+## 临时搭建react环境调试
+### 公共库安装
+    cnpm i react-dom react-redux react-router react-router-redux react-scripts redux redux-logger redux-thunk axios antd  -S
+    cnpm install babel-preset-react -D 识别html转换为jsx语法
+    cnpm i babel-plugin-transform-decorators-legacy -S -D  兼容旧的装饰器行为
